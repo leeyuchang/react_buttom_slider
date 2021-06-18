@@ -9,7 +9,7 @@ $margin: 20px;
 
 html,
 body {
-  // background: $bg-color;
+  background-color: $bg-color;
   height: 100%;
   overscroll-behavior-y: contain;
 }
@@ -23,5 +23,7 @@ body {
 
 .bottomSlider {
   background-color: $bg-color;
+  transition: 0.2s;
+  
 
 }
