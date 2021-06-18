@@ -31,45 +31,41 @@ export default function App() {
 
   return (
     <div style={{ height: windowSize.height }}>
-      <div
+      <Content
         onClick={handleClick}
-        className="content"
-        style={{
-          height: `calc(100% - ${bottomSliderHeightRef.current}rem)`,
-        }}
-      >
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt amet
-        excepturi saepe harum corporis fuga inventore voluptatibus quia
-        repudiandae repellendus. Laboriosam quos ex tenetur voluptates itaque
-        aspernatur voluptatem ut, quaerat non provident aut eos consequuntur
-        explicabo, soluta temporibus? Harum reprehenderit quisquam natus
-        perferendis id temporibus explicabo autem saepe ex nam praesentium,
-        itaque commodi, modi consectetur animi repellendus ad! Dolore unde
-        aspernatur voluptatem ut, quaerat non provident aut eos consequuntur
-        explicabo, soluta temporibus? Harum reprehenderit quisquam natus
-        perferendis id temporibus explicabo autem saepe ex nam praesentium,
-        itaque commodi, modi consectetur animi repellendus ad! Dolore unde
-        aspernatur voluptatem ut, quaerat non provident aut eos consequuntur
-        explicabo, soluta temporibus? Harum reprehenderit quisquam natus
-        perferendis id temporibus explicabo autem saepe ex nam praesentium,
-        itaque commodi, modi consectetur animi repellendus ad! Dolore unde
-        aspernatur voluptatem ut, quaerat non provident aut eos consequuntur
-        explicabo, soluta temporibus? Harum reprehenderit quisquam natus
-        perferendis id temporibus explicabo autem saepe ex nam praesentium,
-        itaque commodi, modi consectetur animi repellendus ad! Dolore unde
-        officiis saepe magni eos, non recusandae alias dolores, minus earum
-        neque, suscipit quam ut ipsa corrupti ipsam quas aut veniam ullam. Culpa
-        debitis ullam totam aperiam rerum.
-        <p>{window.innerHeight}</p>
-      </div>
-      <div
+        bottomSliderHeightRef={bottomSliderHeightRef}
+      />
+      <BottomSlider
+        bottomSliderHeightRef={bottomSliderHeightRef}
         onClick={handleClick}
-        className="bottomSlider"
-        style={{
-          height: `${bottomSliderHeightRef.current}rem`,
-          opacity: bottomSliderHeightRef.current ? 1 : 0,
-        }}
-      ></div>
+      />
     </div>
   )
 }
+
+const Content = React.memo((props) => {
+  return (
+    <div
+      onClick={props.onClick}
+      className="content"
+      style={{
+        height: `calc(100% - ${props.bottomSliderHeightRef.current}rem)`,
+      }}
+    >
+      <p>{window.innerHeight}</p>
+    </div>
+  )
+})
+
+const BottomSlider = React.memo((props) => {
+  return (
+    <div
+      onClick={props.onClick}
+      className="bottomSlider"
+      style={{
+        height: `${props.bottomSliderHeightRef.current}rem`,
+        opacity: props.bottomSliderHeightRef.current ? 1 : 0,
+      }}
+    ></div>
+  )
+})
