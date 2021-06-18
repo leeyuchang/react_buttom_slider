@@ -1,0 +1,27 @@
+$bg-color: #fff;
+$margin: 20px;
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  // background: $bg-color;
+  height: 100%;
+  overscroll-behavior-y: contain;
+}
+
+.content {
+  transition: 0.2s;
+  overflow-y: auto;
+  font-size: 1.2rem;
+  line-height: 1.5;
+}
+
+.bottomSlider {
+  background-color: $bg-color;
+
+}
